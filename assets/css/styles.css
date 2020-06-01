@@ -69,3 +69,77 @@ body {
   background: #fafbfe;
   font-family: IBMPlexSans;
 }
+
+:root {
+  --primary: #FED430;
+  --secondary: #1DBF69;
+}
+
+.text-underline--dashed {
+  border-bottom: 1px dashed !important;
+}
+
+a {
+  outline: 0;
+  transition: all .2s ease;
+  text-decoration: none !important;
+  background-color: transparent;
+  color: var(--secondary);
+}
+
+/*==========
+form control 
+============*/
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 1.5rem + 2px);
+  padding: .75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4a5568;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #e2e8f0;
+  border-radius: .375rem;
+  box-shadow: none;
+  transition: all .2s ease;
+}
+
+.form-control:focus {
+  color: #4a5568;
+  background-color: #fff;
+  border-color: rgba(0, 138, 255, .5);
+  outline: 0;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #A0AEC0;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #A0AEC0;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: #A0AEC0;
+  opacity: 1;
+}
+
+/* =======
+buttons 
+=========*/
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  border-color: var(--secondary);
+  background: var(--secondary);
+}
