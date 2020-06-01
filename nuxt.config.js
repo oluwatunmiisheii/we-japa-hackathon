@@ -18,7 +18,15 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#00FFB8'
+    // continuous: true
+  },
+  loadingIndicator: {
+    name: 'pulse',
+    color: '#ff0000',
+    background: 'white'
+  },
   /*
   ** Global CSS
   */
