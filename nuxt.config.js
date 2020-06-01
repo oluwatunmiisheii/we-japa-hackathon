@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || 'WeJapa | Your Job Search Ends Here',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       { rel: 'stylesheet', href: 'href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ],
     script: [
       {
@@ -43,6 +43,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/styles.css',
   ],
   /*
   ** Plugins to load before mounting the App

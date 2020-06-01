@@ -1,9 +1,12 @@
+/*=============== 
+  Font import
+==============*/
 @font-face {
   font-family: IBMPlexSans;
-  src: url('IBMPlexSans-ExtraLight.eot');
-  src: url('IBMPlexSans-ExtraLight.eot') format('embedded-opentype'),
-    url('IBMPlexSans-ExtraLight.woff') format('woff'),
-    url('IBMPlexSans-ExtraLight.woff2') format('woff2');
+  src: url('../fonts/IBMPlexSans-ExtraLight.eot');
+  src: url('../fonts/IBMPlexSans-ExtraLight.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-ExtraLight.woff') format('woff'),
+    url('../fonts/IBMPlexSans-ExtraLight.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
 }
@@ -56,4 +59,13 @@
     url('../fonts/IBMPlexSans-Bold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
+}
+
+
+/*=============== 
+  General*
+==============*/
+body {
+  background: #fafbfe;
+  font-family: IBMPlexSans;
 }
