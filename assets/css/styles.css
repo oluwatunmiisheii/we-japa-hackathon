@@ -129,6 +129,11 @@ form control
   opacity: 1;
 }
 
+.error {
+  color: #ff0000;
+  font-size: 13px;
+}
+
 /* =======
 buttons 
 =========*/
@@ -140,10 +145,10 @@ buttons
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  border-color: var(--secondary);
-  background: var(--secondary);
-  outline: 0;
-  box-shadow: none;
+  border-color: var(--secondary) !important;
+  background: var(--secondary) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .btn-submit {
