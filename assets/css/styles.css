@@ -1,0 +1,59 @@
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('IBMPlexSans-ExtraLight.eot');
+  src: url('IBMPlexSans-ExtraLight.eot') format('embedded-opentype'),
+    url('IBMPlexSans-ExtraLight.woff') format('woff'),
+    url('IBMPlexSans-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('../fonts/IBMPlexSans-Light.eot');
+  src: url('../fonts/IBMPlexSans-Light.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-Light.woff') format('woff'),
+    url('../fonts/IBMPlexSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('../fonts/IBMPlexSans.eot');
+  src: url('../fonts/IBMPlexSans.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans.woff') format('woff'),
+    url('../fonts/IBMPlexSans.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('../fonts/IBMPlexSans-Medium.eot');
+  src: url('../fonts/IBMPlexSans-Medium.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-Medium.woff') format('woff'),
+    url('../fonts/IBMPlexSans-Medium.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('../fonts/IBMPlexSans-SemiBold.eot');
+  src: url('../fonts/IBMPlexSans-SemiBold.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-SemiBold.woff') format('woff'),
+    url('../fonts/IBMPlexSans-SemiBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('../fonts/IBMPlexSans-Bold.eot');
+  src: url('../fonts/IBMPlexSans-Bold.eot') format('embedded-opentype'),
+    url('../fonts/IBMPlexSans-Bold.woff') format('woff'),
+    url('../fonts/IBMPlexSans-Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
