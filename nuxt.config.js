@@ -46,6 +46,14 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'https://wejapabackend.herokuapp.com/api'
+  },
+
+  /*
+  ** Environment variables
+  */
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://wejapabackend.herokuapp.com/api'
   },
   /*
   ** Build configuration
@@ -54,7 +62,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
