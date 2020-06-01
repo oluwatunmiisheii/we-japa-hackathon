@@ -142,4 +142,10 @@ buttons
 .btn-primary:active {
   border-color: var(--secondary);
   background: var(--secondary);
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-submit {
+  border-color: var(--deepgrey);
 }

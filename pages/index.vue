@@ -23,12 +23,12 @@
                   <p class="text-muted mb-0">Sign in to your account to continue.</p>
                 </div>
                 <span class="clearfix"></span>
-                <form>
+                <form @submit.prevent="login">
                   <!-- email address field -->
                   <div class="form-group">
                     <label class="form-control-label">Email address</label>
                     <div class="input-group input-group-merge">
-                      <input type="email" class="form-control form-control-prepend" id="input-email" placeholder="name@example.com">
+                      <input v-model="user.email" type="email" class="form-control form-control-prepend" id="input-email" placeholder="name@example.com">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <svg 
@@ -60,7 +60,7 @@
                       </a></div>
                     </div>
                     <div class="input-group input-group-merge">
-                      <input :type="type" class="form-control form-control-prepend" id="input-password" placeholder="Password">
+                      <input v-model="user.password" :type="type" class="form-control form-control-prepend" id="input-password" placeholder="Password">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <svg
@@ -83,7 +83,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mt-4"><button type="button" class="btn btn-block btn-primary">Sign in</button></div>
+                  <div class="mt-4"><button type="submit" class="btn btn-block btn-primary">Sign in</button></div>
                 </form>
                 <div class="mt-4 text-center">
                   <small>Dont have an account?</small> 
@@ -100,9 +100,19 @@
 
 <script>
 export default {
+  methods: {
+    async login() {
+      await this.$store.dispatch('auth/loginUser', this.user).then(res => {
+        console.log('res>>>', res)
+      }).catch(err => {
+        console.log('err >>>', err);
+      })
+    }
+  },
   data() {
     return {
-      type: 'password'
+      type: 'password',
+      user: {}
     }
   }
 }
