@@ -103,9 +103,21 @@ export default {
   methods: {
     async login() {
       await this.$store.dispatch('auth/loginUser', this.user).then(res => {
+        this.$notify({
+          group: 'foo',
+          type: 'success',
+          title: 'Login Successful',
+          text: `${res.message}`
+        })
         console.log('res>>>', res)
-      }).catch(err => {
-        console.log('err >>>', err);
+      }).catch(error => {
+        this.$notify({
+          group: 'foo',
+          type: 'error',
+          title: 'Login Failed',
+          text: `${error.message}`
+        })
+        console.log('err >>>', error);
       })
     }
   },

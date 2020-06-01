@@ -23,7 +23,8 @@ export const actions = {
       const response = await this.$axios.$post(url, data);
       console.log(response.data.developer);
 
-      const { token, email, name } = response.data.developer;
+      const { email, name } = response.data.developer
+      const { token } = response.data
       const userObj = {
         name: name,
         email: email
@@ -45,28 +46,6 @@ export const actions = {
       }
     }
   },
-
-  checkAuthStatus(vuexContext, req) {
-    let token;
-    if (req) {
-      if (!req.headers.cookie) {
-        return;
-      }
-      const jwtCookie = req.headers.cookie
-        .split(";")
-        .find(c => c.trim().startsWith("gamify-token="));
-      if (!jwtCookie) {
-        return;
-      }
-      token = jwtCookie.split("=")[1];
-      vuexContext.commit("setToken", token);
-      this.$axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    } else if (process.client) {
-      token = localStorage.getItem("gamify-token");
-      vuexContext.commit("setToken", token);
-      this.$axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    }
-  }
 };
 
 export const getters = {

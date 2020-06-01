@@ -49,6 +49,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '~/plugins/client-plugins.js',
+      mode: 'client'
+    }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -61,6 +65,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    ['nuxt-validate', { lang: 'en', events: 'change|blur' }]
   ],
   /*
   ** Axios module configuration
