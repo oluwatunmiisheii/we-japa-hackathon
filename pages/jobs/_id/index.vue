@@ -88,7 +88,7 @@
     
         <div class="row justify-content-center text-center mt-4">
           <div class="col-md-2">
-            <button class="btn btn-light mb-5 btn-block" :disabled="job.status === 'Closed'">Apply</button>
+            <button class="btn btn-outline-light mb-5 btn-block text-dark" :disabled="job.status === 'Closed'">Apply</button>
           </div>
         </div>
       </section>
@@ -145,5 +145,8 @@ export default {
     background: #000;
     padding: 5px;
     text-align: center;
+  }
+  .job--link {
+    border-bottom: 1px dotted;
   }
 </style>
