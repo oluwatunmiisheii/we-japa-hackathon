@@ -65,7 +65,7 @@
                         v-for="(error, i) in errors.collect('signIn.Email')"
                         class="error"
                         :key="i"
-                      >{{ error }}
+                      ><em class="fas fa-info-circle pdt-1x"></em> {{ error }}
                       </small>
                     </template>
                   </div>

@@ -23,7 +23,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" @click="logOut" href="#"><i class="fas fa-sign-out-alt mr-2"></i>Log out</a>
             </div>
           </li>
         </ul>
@@ -37,7 +38,13 @@
   export default {
     components: {
       Logo
-    }
+    },
+    methods: {
+      logOut() {
+        localStorage.clear()
+        this.$router.replace({path: '/'})
+      }
+    },
   }
 
 </script>
