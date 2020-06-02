@@ -162,6 +162,18 @@ a {
   font-size: 14px !important;
 }
 
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0;
+  border-left: 0 !important;
+  display: none !important;
+}
+
 /*===============
 background and text
 ==================*/
