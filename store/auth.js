@@ -21,8 +21,6 @@ export const actions = {
     let url = 'developer/login'
     try {
       const response = await this.$axios.$post(url, data);
-      console.log(response.data.developer);
-
       const { email, name } = response.data.developer
       const { token } = response.data
       const userObj = {

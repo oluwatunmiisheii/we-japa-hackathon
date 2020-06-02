@@ -174,7 +174,9 @@ export default {
           title: 'Login Successful',
           text: `${res.message}`
         })
-        this.$router.push({path: '/dashboard'})
+        setTimeout(() => {
+          this.$router.push({path: '/dashboard'})
+        }, 500)
       }).catch(error => {
         this.isProcessing = false
         this.$notify({
