@@ -17,13 +17,20 @@ export default {
     ],
     script: [
       {
-        src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js'
+        src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+        type: 'text/javascript'
+      },
+      {
+        src: 'https://kit.fontawesome.com/0df96dc054.js',
+        type: 'text/javascript'
       },
       {
         src: 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
+        type: 'text/javascript'
       },
       {
-        src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI',
+        src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js',
+        type: 'text/javascript'
       }
     ],
   },
@@ -36,7 +43,7 @@ export default {
   },
   loadingIndicator: {
     name: 'pulse',
-    color: '#ff0000',
+    color: '#1DBF69',
     background: 'white'
   },
   /*

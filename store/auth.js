@@ -31,9 +31,9 @@ export const actions = {
       }
       localStorage.setItem("developerToken", token);
       localStorage.setItem("authUser", JSON.stringify(userObj));
+      this.$axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       commit("setAuthenticationState", true);
       commit("setToken", token);
-      this.$axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       return response
     } catch (error) {
       if (error.response) {
@@ -46,6 +46,17 @@ export const actions = {
       }
     }
   },
+  checkAuthStatus({ commit }) {
+    let token;
+    if (process.client) {
+      token = localStorage.getItem("developerToken");
+      if (token) {
+        commit("setToken", token);
+        commit('setAuthenticationState', true)
+        this.$axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      }
+    }
+  }
 };
 
 export const getters = {
