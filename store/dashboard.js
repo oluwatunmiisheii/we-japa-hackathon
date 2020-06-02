@@ -18,7 +18,6 @@ export const actions = {
     let url = 'job/all'
     try {
       const { data } = await this.$axios.$get(url);
-      console.log(data);
       commit("setAllJobs", data);
       return data
     } catch (error) {
@@ -36,8 +35,6 @@ export const actions = {
     let url = `/job/${jobId}`;
     try {
       const { data } = await this.$axios.$get(url);
-      console.log(data);
-
       commit('setSingleJob', data)
       return data
     } catch (error) {
