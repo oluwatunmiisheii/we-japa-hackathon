@@ -182,6 +182,10 @@ background and text
   color: var(--secondary) !important;
 }
 
+.bg-dark {
+  background: #000 !important;
+}
+
 /*==========
 form control 
 ============*/
@@ -230,6 +234,10 @@ form control
   font-size: 13px;
 }
 
+.nuxt-link-exact-active {
+  color: #fff !important;
+}
+
 /* =======
 buttons 
 =========*/
@@ -246,7 +254,8 @@ buttons
 
 .btn-primary:hover,
 .btn-primary:focus,
-.btn-primary:active {
+.btn-primary:active,
+.btn-secondary {
   border-color: var(--secondary) !important;
   background: var(--secondary) !important;
   outline: 0 !important;
@@ -320,4 +329,17 @@ pagination component
 .pagination li.active a:hover {
   color: #fff !important;
   background: var(--secondary);
+}
+
+/* ==================
+page transitions 
+=====================*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

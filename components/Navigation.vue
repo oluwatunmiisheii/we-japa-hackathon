@@ -11,10 +11,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Latest Jobs</a>
+            <nuxt-link :to="({path: '/jobs'})" class="nav-link" href="#">All Jobs</nuxt-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Applied Jobs</a>
+            <nuxt-link :to="({path: '/jobs/applied-jobs'})" class="nav-link" href="#">Applied Jobs</nuxt-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>

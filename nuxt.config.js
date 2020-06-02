@@ -46,6 +46,15 @@ export default {
     color: '#1DBF69',
     background: 'white'
   },
+
+  /*
+  ** Page Transition
+  */
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
+
   /*
   ** Global CSS
   */

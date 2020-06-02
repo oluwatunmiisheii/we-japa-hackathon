@@ -2,9 +2,11 @@
   <div>
     <notifications group="foo" position="top right" :max="1" />
     <the-navigation />
-    <div class="container pt-5">
-      <nuxt />
-    </div>
+    <transition mode="out-in" name="fade">
+      <div class="container pt-5">
+        <nuxt />
+      </div>
+    </transition>
   </div>
 </template>
 
