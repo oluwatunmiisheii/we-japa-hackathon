@@ -22,8 +22,8 @@
               </div>
               <div>
                 <div class="mb-5">
-                  <h6 class="h3 mb-1">Welcome back!</h6>
-                  <p class="text-muted mb-0">Sign in to your account to continue.</p>
+                  <h6 class="h3 mb-1">Reset Password</h6>
+                  <p class="text-muted mb-0">We will send you an email that will allow you to reset your password..</p>
                 </div>
                 <span class="clearfix"></span>
                 <form @submit.prevent="checkFormErrors">
@@ -33,7 +33,7 @@
                     <div class="input-group input-group-merge">
                       <input 
                         @Change="resetValidation('Email')" 
-                        data-vv-scope="signIn"
+                        data-vv-scope="resetPassword"
                         name="Email"
                         v-validate="'required|email'"
                         v-model="user.email" 
@@ -47,22 +47,22 @@
                             xmlns="http://www.w3.org/2000/svg" 
                             width="1em" 
                             height="1em" 
-                            viewBox="0 0 24 24" fill="none"
+                            viewBox="0 0 24 24" 
+                            fill="none" 
                             stroke="currentColor" 
                             stroke-width="2" 
                             stroke-linecap="round" 
-                            stroke-linejoin="round"
-                            class="feather feather-user"
+                            stroke-linejoin="round" 
+                            class="feather feather-at-sign"
                           >
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
+                            <circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
                           </svg>
                         </span>
                       </div>
                     </div>
-                    <template v-if="errors.first('signIn.Email')">
+                    <template v-if="errors.first('resetPassword.Email')">
                       <small
-                        v-for="(error, i) in errors.collect('signIn.Email')"
+                        v-for="(error, i) in errors.collect('resetPassword.Email')"
                         class="error"
                         :key="i"
                       ><em class="fas fa-info-circle pdt-1x"></em> {{ error }}
@@ -70,66 +70,13 @@
                     </template>
                   </div>
 
-                  <!-- password field -->
-                  <div class="form-group mb-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                      <div><label class="form-control-label">Password</label></div>
-                      <div class="mb-2"><a href="#" class="small text-muted text-underline--dashed">
-                        <span v-show="type === 'password'" @click="type = 'text'">Show password</span>
-                        <span v-show="type !== 'password'" @click="type = 'password'">Hide password</span>
-                      </a></div>
-                    </div>
-                    <div class="input-group input-group-merge">
-                      <input 
-                        @change="resetValidation('Password')" 
-                        data-vv-scope="signIn"
-                        name="Password"
-                        v-validate="'required|min:6'"
-                        v-model="user.password" 
-                        :type="type" 
-                        class="form-control form-control-prepend" 
-                        id="input-password" 
-                        placeholder="Password"
-                      >
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg" 
-                            width="1em" 
-                            height="1em" 
-                            viewBox="0 0 24 24" 
-                            fill="none"
-                            stroke="currentColor" 
-                            stroke-width="2" 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round"
-                            class="feather feather-key"
-                          >
-                            <path
-                              d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4">
-                            </path>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <template v-if="errors.first('signIn.Password')">
-                      <small
-                        class="error"
-                        v-for="(error, i) in errors.collect('signIn.Password')"
-                        :key="i"
-                      >
-                        <em class="fas fa-info-circle pdt-1x"></em>
-                        {{ error }}
-                      </small>
-                    </template>
-                  </div>
                   <div class="mt-4">
                     <div class="mb-2 text-left">
-                      <nuxt-link :to="({path: '/auth/forgot-password'})" href="#" class="small text-muted text-underline--dashed">Forgot Password?</nuxt-link>
+                      <nuxt-link :to="({path: '/'})" href="#" class="small text-muted text-underline--dashed">Back to Login</nuxt-link>
                     </div>
                     <button type="submit" :disabled="isProcessing" class="btn btn-block btn-primary">
                       <span class="spinner-border spinner-border-sm" v-show="isProcessing" role="status" aria-hidden="true"></span>
-                      <span v-show="!isProcessing">Sign in</span>
+                      <span v-show="!isProcessing">Reset Password</span>
                     </button>
                   </div>
                 </form>
@@ -155,7 +102,7 @@ export default {
   methods: {
     	resetValidation(key) {
 			let matcher = {
-    	scope: 'signIn',
+    	scope: 'resetPassword',
     	name: key
 		}
 			this.$validator.reset(matcher);
@@ -169,17 +116,19 @@ export default {
 		},
     async login() {
       this.isProcessing = true
-      await this.$store.dispatch('auth/loginUser', this.user).then(res => {
-        this.isProcessing = false
-        this.$notify({
-          group: 'foo',
-          type: 'success',
-          title: 'Login Successful',
-          text: `${res.message}`
-        })
-        setTimeout(() => {
-          this.$router.replace({path: '/dashboard'})
-        }, 500)
+      await this.$store.dispatch('auth/resetPassword', this.user).then(res => {
+        console.log('res>>>', res);
+        
+        // this.isProcessing = false
+        // this.$notify({
+        //   group: 'foo',
+        //   type: 'success',
+        //   title: 'Login Successful',
+        //   text: `${res.message}`
+        // })
+        // setTimeout(() => {
+        //   this.$router.push({path: '/dashboard'})
+        // }, 500)
       }).catch(error => {
         this.isProcessing = false
         this.$notify({

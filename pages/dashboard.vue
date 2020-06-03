@@ -5,6 +5,7 @@
         <div class="row">
           <div class="col-md-8">
             <h1 class="h4 mb-0 page-title">Hi! {{ user.name ? user.name.split(' ')[0] : '' }}</h1>
+            <p class="text-muted">Are you ready to japa?</p>
           </div>
           <div class="col-md-4 text-right">
             <client-only placeholder="Loading...">
@@ -171,7 +172,7 @@
 
 <style>
   .page-title {
-    color: #152c5b;
+    color: #151516;
     letter-spacing: -1px;
     margin-bottom: 3px;
   }
@@ -189,7 +190,7 @@
 
   .all-jobs-link {
     font-size: 14px;
-    color: #152c5b;
+    color: #151516;
   }
 
   .all-jobs-link span {
@@ -217,7 +218,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    background: #000;
+    background: #151516;
     padding: 5%;
     text-align: center;
   }

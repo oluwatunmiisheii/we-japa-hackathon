@@ -68,7 +68,7 @@
 body {
   background: #fafbfe;
   font-family: IBMPlexSans;
-  color: #152c5b;
+  color: #151516;
   box-sizing: border-box;
 }
 
@@ -88,11 +88,11 @@ h6 {
   font-family: inherit;
   font-weight: 600;
   line-height: 1.5;
-  color: #152c5b;
+  color: #151516;
 }
 
 p {
-  color: #152c5b;
+  color: #151516;
 }
 
 :root {
@@ -111,6 +111,13 @@ a {
   text-decoration: none !important;
   background-color: transparent;
   color: var(--secondary);
+}
+
+a.active,
+a:hover,
+a:focus,
+a.focus-within {
+  color: var(--secondary) !important;
 }
 
 .shadow {
@@ -137,6 +144,40 @@ a {
   font-size: .875rem !important;
 }
 
+.fs-14 {
+  font-size: 14px !important;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0;
+  border-left: 0 !important;
+  display: none !important;
+}
+
+.logOut__link {
+  background-color: #fafbfe !important;
+  color: #333 !important;
+}
+
+/*====================== 
+main navigation 
+=====================*/
+.main-navigation a.nav-link:active,
+.main-navigation a.nav-link:hover,
+.main-navigation a.nav-link:focus,
+.main-navigation a.nav-link.focus-within {
+  color: #fff !important;
+}
+
+/*============
+cards 
+==============*/
 .card {
   position: relative;
   margin-bottom: 30px;
@@ -158,26 +199,9 @@ a {
   color: #718096;
 }
 
-.fs-14 {
-  font-size: 14px !important;
-}
-
-.dropdown-toggle::after {
-  display: inline-block;
-  margin-left: .255em;
-  vertical-align: .255em;
-  content: "";
-  border-top: 0 !important;
-  border-right: 0 !important;
-  border-bottom: 0;
-  border-left: 0 !important;
-  display: none !important;
-}
-
 /*===============
 background and text
 ==================*/
-
 .bg-success {
   background: var(--secondary) !important;
 }
@@ -195,7 +219,7 @@ background and text
 }
 
 .bg-dark {
-  background: #000 !important;
+  background: #151516 !important;
 }
 
 /*==========
@@ -256,6 +280,7 @@ buttons
 .btn-primary {
   background: var(--primary);
   border-color: var(--primary);
+  color: #151516 !important;
 }
 
 .btn-primary:disabled {
@@ -272,6 +297,13 @@ buttons
   background: var(--secondary) !important;
   outline: 0 !important;
   box-shadow: none !important;
+  color: #fff !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:focus-within {
+  color: #fff !important
 }
 
 .btn-light {
@@ -354,4 +386,27 @@ page transitions
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+/*===============
+  dropdown 
+==============*/
+p.dropdown-item:focus,
+p.dropdown-item:hover,
+small.dropdown-item:focus,
+small.dropdown-item:hover {
+  color: #151516;
+  text-decoration: none;
+  background-color: transparent !important;
+}
+
+.dropdown-menu .dropdown-hover:hover,
+.dropdown-menu .dropdown-hover:active,
+.dropdown-menu .dropdown-hover:focus,
+.dropdown-menu .dropdown-hover:focus-within {
+  color: var(--secondary) !important;
+}
+
+.dropdown-menu a.dropdown-hover.nuxt-link-exact-active {
+  color: var(--secondary) !important;
 }
