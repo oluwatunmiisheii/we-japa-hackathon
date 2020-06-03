@@ -35,19 +35,19 @@
                   </p>
                 </li>
                 <li class="list-group-item">
-                  <small class="text-muted mb-1 fs-14">Github</small>
+                  <small class="text-muted fs-14">Github</small>
                   <p class="mb-0 font-weight-normal"><a :href="user.git" target="_blank">{{ user.git ? user.git : 'No info' }}</a></p>
                 </li>
                 <li class="list-group-item">
-                  <small class="text-muted mb-1 fs-14">Phone number</small>
+                  <small class="text-muted fs-14">Phone number</small>
                   <p class="mb-0 font-weight-normal">{{ user.phone ? user.phone : 'No Info' }}</p>
                 </li>
                 <li class="list-group-item">
-                  <small class="text-muted mb-1 fs-14">Experience level</small>
+                  <small class="text-muted fs-14">Experience level</small>
                   <p class="mb-0 font-weight-normal">{{ user.experienceLevel ? user.experienceLevel : 'No Info' }}</p>
                 </li>
                 <li class="list-group-item">
-                  <small class="text-muted mb-1 fs-14">Resume</small>
+                  <small class="text-muted fs-14">Resume</small>
                   <p class="mb-0 font-weight-normal"><a :href="user.resume" target="_blank">{{ user.resume ? user.resume : 'No info' }}</a></p>
                 </li>
               </ul>
