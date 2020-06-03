@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-dark shadow main-navigation">
+  <nav class="navbar sticky-top  navbar-expand-lg navbar-light bg-light shadow main-navigation">
     <div class="container">
       <nuxt-link class="navbar-brand" :to="({path: '/dashboard'})">
-        <Logo />
+        <!-- <Logo /> -->
+        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1588148135977/8eNJhZgBv.png" height="40" alt="weJapa logo">
       </nuxt-link>
       <button 
         class="navbar-toggler" 
@@ -21,7 +22,7 @@
             <nuxt-link :to="({path: '/jobs'})" class="nav-link" href="#">All Jobs</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link :to="({path: '/jobs/applied-jobs'})" class="nav-link" href="#">Applied Jobs</nuxt-link>
+            <nuxt-link :to="({path: '/jobs/applications'})" class="nav-link" href="#">Applications</nuxt-link>
           </li>
           <li class="nav-item dropdown">
             <a 
@@ -39,8 +40,8 @@
               <div class="dropdown-item bg-transparent">
                 <img src="~assets/images/avatar-1.png" height="40" alt="">
               </div>
-              <p class="dropdown-item mb-0 pb-0 bg-transparent">{{ user.name }}</p>
-              <small class="dropdown-item mt-0 pt-0 bg-transparent" href="#">{{ user.email ? user.email : ''}}</small>
+              <p class="dropdown-item mb-0 pb-0 bg-transparent user--name">{{ user.name }}</p>
+              <small class="dropdown-item mt-0 pt-0 bg-transparent user--email" href="#">{{ user.email ? user.email : ''}}</small>
               <div class="dropdown-divider"></div>
               <div class="py-2">
                 <nuxt-link :to="({path: '/profile'})" class="dropdown-item text-dark bg-transparent dropdown-hover" href="#">Profile</nuxt-link>

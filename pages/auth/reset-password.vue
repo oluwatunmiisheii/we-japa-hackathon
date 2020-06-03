@@ -108,7 +108,7 @@ export default {
 			this.$validator.reset(matcher);
 		},
 		checkFormErrors() {
-			this.$validator.validate('signIn.*').then(valid => {
+			this.$validator.validate('resetPassword.*').then(valid => {
 				if(valid) {
 					this.login()
 				}
@@ -116,6 +116,8 @@ export default {
 		},
     async login() {
       this.isProcessing = true
+      console.log(this.user);
+      
       await this.$store.dispatch('auth/resetPassword', this.user).then(res => {
         console.log('res>>>', res);
         

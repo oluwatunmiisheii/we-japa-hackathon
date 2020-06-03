@@ -21,7 +21,7 @@ export const actions = {
     let url = 'developer/login'
     try {
       const response = await this.$axios.$post(url, data);
-      const { email, name, phone, experienceLevel, resume, github } = response.data.developer
+      const { email, name, phone, experienceLevel, resume, github, status } = response.data.developer
       const { token } = response.data
       const userObj = {
         name: name,
@@ -29,7 +29,8 @@ export const actions = {
         phone: phone,
         experience: experienceLevel,
         git: github,
-        resume: resume
+        resume: resume,
+        status: status
       }
       localStorage.setItem("developerToken", token);
       localStorage.setItem("authUser", JSON.stringify(userObj));
@@ -49,14 +50,12 @@ export const actions = {
     }
   },
   async resetPassword({ commit }, data) {
-    let url = '/resetpasswordrequest'
+    let url = 'developer/resetpasswordrequest'
     try {
-      const response = await this.$axios.$get(url, data);
-      console.log('response >>>', response);
+      const response = await this.$axios.$post(url, data);
       return response
     } catch (error) {
       if (error.response) {
-        console.log(error);
         throw new Error(error.response.data.message);
       } else {
         throw new Error(

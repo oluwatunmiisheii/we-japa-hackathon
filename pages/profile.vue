@@ -18,14 +18,22 @@
                   <div class="user-avartar">
                     <img src="~assets/images/avatar-1.png" height="70" alt="">
                   </div>
-                  <div>
-                    <p class="mb-0 font-weight-normal">{{ user.name ? user.name : '' }}</p>
-                    <small class="text-muted fs-14">{{ user.email? user.email : '' }}</small>
+                  <div class="pl-4" style="width: 80%">
+                    <p class="mb-0 font-weight-normal user--name w-100" style=" display: -webkit-box;">{{ user.name ? user.name : '' }}</p>
+                    <small class="text-muted fs-14 user--email w-100" style=" display: -webkit-box;">{{ user.email? user.email : '' }}</small>
                   </div>
                 </li>
               </ul>
               <button class="btn btn-secondary btn-block my-3">Edit Profile</button>
               <ul class="list-group list-group-flush user-details">
+                <li class="list-group-item">
+                  <small class="text-muted mb-1 fs-14">Status</small>
+                  <p class="mb-0 font-weight-normal">
+                    <span v-if="user.status === 'Approved'" class="text-success fs-12"><i class="fa fa-circle"></i></span>
+                    <span v-if="user.status === 'Pending'" class="text-warning fs-12"><i class="fa fa-circle"></i></span>
+                    {{ user.status ? user.status : 'No info' }}
+                  </p>
+                </li>
                 <li class="list-group-item">
                   <small class="text-muted mb-1 fs-14">Github</small>
                   <p class="mb-0 font-weight-normal"><a :href="user.git" target="_blank">{{ user.git ? user.git : 'No info' }}</a></p>
@@ -52,7 +60,7 @@
               <div class="card-body">
                 <img src="~/assets/images/illustration-4.png" alt="">
                 <h4 class="h4">OOps! No Jobs </h4>
-                <p class="text-muted px-md-5 mx-md-5">You havent applied for any job at the moment, click on the button below to view available jobs</p>
+                <p class="text-muted px-md-5 mx-md-5">You havent applied for any job of recent, click on the button below to view available jobs</p>
                 <nuxt-link :to="({path: '/jobs'})" class="btn btn-secondary">View jobs</nuxt-link>
               </div>
             </div>

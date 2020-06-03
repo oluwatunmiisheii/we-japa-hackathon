@@ -18,7 +18,7 @@
           <div class="row justify-content-center">
             <div class="col-11 col-lg-10 col-xl-6">
               <div class="mb-4 pb-4">
-                <Logo />
+               <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1588148135977/8eNJhZgBv.png" height="40" alt="weJapa logo">
               </div>
               <div>
                 <div class="mb-5">
@@ -125,7 +125,7 @@
                   </div>
                   <div class="mt-4">
                     <div class="mb-2 text-left">
-                      <nuxt-link :to="({path: '/auth/forgot-password'})" href="#" class="small text-muted text-underline--dashed">Forgot Password?</nuxt-link>
+                      <nuxt-link :to="({path: '/auth/reset-password'})" href="#" class="small text-muted text-underline--dashed">Forgot Password?</nuxt-link>
                     </div>
                     <button type="submit" :disabled="isProcessing" class="btn btn-block btn-primary">
                       <span class="spinner-border spinner-border-sm" v-show="isProcessing" role="status" aria-hidden="true"></span>
@@ -133,7 +133,14 @@
                     </button>
                   </div>
                 </form>
-                <div class="mt-4 text-center">
+                <div class="d-none d-md-block">
+                  <div class="py-3 text-center fs-12"><span class="text-xs text-uppercase text-muted">or</span></div>
+                  <div class="d-flex justify-content-between">
+                    <AndroidDownload />
+                    <IosDownload />
+                  </div>
+                </div>
+                <div class="mt-4">
                   <small>Dont have an account?</small> 
                   <a href="#" class="small font-weight-bold">Create account</a>
                 </div>
@@ -148,9 +155,13 @@
 
 <script>
 import Logo from '@/components/Logo'
+import AndroidDownload from '@/components/androidDownload'
+import IosDownload from '@/components/iosDownload'
 export default {
   components: {
-    Logo
+    Logo,
+    AndroidDownload,
+    IosDownload
   },
   methods: {
     	resetValidation(key) {

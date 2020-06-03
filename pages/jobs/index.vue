@@ -4,7 +4,7 @@
       <section class="page-title pb-5">
         <div class="row">
           <div class="col-md-8">
-            <h1 class="h4 mb-0 page-title">All Jobs</h1>
+            <h1 class="h4 mb-3 mb-md-0 page-title">All Jobs</h1>
           </div>
           <div class="col-md-4 text-right">
             <!-- search field -->
@@ -14,7 +14,7 @@
                   v-model="search" 
                   type="text" 
                   class="form-control fs-14"  
-                  placeholder="filter by job name and location..."
+                  placeholder="Filter jobs..."
                   @change="togglePagination" 
                 >
               </div>
@@ -25,7 +25,6 @@
   
       <!-- latest jobs -->
       <section class="mb-5" v-if="allJobs !== null">
-        
         <template v-if="paginatedJobs.length">
           <div class="row mb-5">
             <div class="col-md-3 col-sm-6 px-2 pb-4" v-for="job in paginatedJobs" :key="job._id">
@@ -65,8 +64,8 @@
                   :page-range="3"
                   :margin-pages="2"
                   :click-handler="clickCallback"
-                  :prev-text="`<i class='fa fa-arrow-left fs-14'></i>`"
-                  :next-text="`<i class='fa fa-arrow-right fs-14'></i>`"
+                  :prev-text="`<i class='fa fa-angle-left fs-14'></i>`"
+                  :next-text="`<i class='fa fa-angle-right fs-14'></i>`"
                   :container-class="'pagination'"
                   :page-class="'page-link'"
                 >
@@ -75,6 +74,8 @@
             </div>
           </client-only>
         </template>
+
+        <!-- shows when there is no job -->
         <template v-else>
           <div class="row justify-content-center">
             <div class="col-md-7 text-center">
@@ -163,7 +164,13 @@
           return self.allJobs.jobs.slice(start, end)
         }else {
           return self.allJobs.jobs.filter((job) => {
-            return ((job.title.toLowerCase().match(self.search.toLowerCase()))  || (job.location.toLowerCase().match(self.search.toLowerCase())) )
+            return ((job.title.toLowerCase().match(self.search.toLowerCase()))  || 
+              (job.location.toLowerCase().match(self.search.toLowerCase())) || 
+              (job.status.toLowerCase().match(self.search.toLowerCase())) ||
+              (job.description.toLowerCase().match(self.search.toLowerCase())) ||
+              (job.experience.toLowerCase().match(self.search.toLowerCase())) ||
+              (String(job.salary).toLowerCase().match(self.search.toLowerCase()))
+            )
           })
         }
       },

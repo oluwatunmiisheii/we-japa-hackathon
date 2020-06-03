@@ -148,6 +148,10 @@ a.focus-within {
   font-size: 14px !important;
 }
 
+.fs-12 {
+  font-size: 12px !important;
+}
+
 .dropdown-toggle::after {
   display: inline-block;
   margin-left: .255em;
@@ -168,12 +172,12 @@ a.focus-within {
 /*====================== 
 main navigation 
 =====================*/
-.main-navigation a.nav-link:active,
+/* .main-navigation a.nav-link:active,
 .main-navigation a.nav-link:hover,
 .main-navigation a.nav-link:focus,
 .main-navigation a.nav-link.focus-within {
   color: #fff !important;
-}
+} */
 
 /*============
 cards 
@@ -271,7 +275,18 @@ form control
 }
 
 .nuxt-link-exact-active {
-  color: #fff !important;
+  color: var(--secondary) !important;
+}
+
+p.user--name,
+small.user--email {
+  width: 95%;
+  text-align: right;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  text-decoration: none;
 }
 
 /* =======
@@ -391,6 +406,10 @@ page transitions
 /*===============
   dropdown 
 ==============*/
+.dropdown-menu {
+  max-width: 200px
+}
+
 p.dropdown-item:focus,
 p.dropdown-item:hover,
 small.dropdown-item:focus,
