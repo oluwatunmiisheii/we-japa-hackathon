@@ -1,6 +1,6 @@
 # We Japa
 
-This application is a nuxtjs implementaion of the idea of a platform that helps techies gain access to tech jobs across Africa, Europe and North America.
+This application is a nuxtjs implementaion of a platform that helps techies gain access to tech jobs across Africa, Europe and North America.
 you can access the project [here](wejapa-hackathon.netlify.app)
 
 ## Want to run it locally?
