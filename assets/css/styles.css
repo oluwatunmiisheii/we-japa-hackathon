@@ -1,3 +1,33 @@
+:root {
+  --primary: #FED430;
+  --secondary: #1DBF69;
+  --danger: hsl(0, 100%, 50%);
+  --body-bg: #fafbfe;
+  --font-color: #151516;
+  --card-bg: #ffffff;
+  --bg-dark: #253649;
+  --nav-bg: #f8f9fa;
+  --nav-link: #00000080;
+  --card-border: #eff2f7;
+  --bg-white: #fff;
+  --text-muted: #6c757d;
+  --bg-grey: #ddd;
+  --skeleton-loading: #ffffff33;
+}
+
+.dark-mode {
+  --body-bg: #1f2d3d;
+  --font-color: #fff;
+  --nav-bg: #f8f9fa;
+  --nav-bg: #253649;
+  --bg-white: #253649;
+  --text-dark: #fff;
+  --nav-link: #fff;
+  --card-border: #253649;
+  --card-bg: #253649;
+  --text-muted: #d9d9d994;
+}
+
 /*=============== 
   Font import
 ==============*/
@@ -66,10 +96,11 @@
   General*
 ==============*/
 body {
-  background: #fafbfe;
+  background: var(--body-bg);
   font-family: IBMPlexSans;
-  color: #151516;
+  color: var(--font-color);
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .h1,
@@ -88,17 +119,15 @@ h6 {
   font-family: inherit;
   font-weight: 600;
   line-height: 1.5;
-  color: #151516;
+  color: var(--font-color);
 }
 
 p {
-  color: #151516;
+  color: var(--font-color);
 }
 
-:root {
-  --primary: #FED430;
-  --secondary: #1DBF69;
-  --danger: #ff0000;
+.text-dark {
+  color: var(--font-color) !important;
 }
 
 .text-underline--dashed {
@@ -152,6 +181,10 @@ a.focus-within {
   font-size: 12px !important;
 }
 
+.fs-16 {
+  font-size: 16px !important;
+}
+
 .dropdown-toggle::after {
   display: inline-block;
   margin-left: .255em;
@@ -169,15 +202,28 @@ a.focus-within {
   color: #333 !important;
 }
 
+.text-danger {
+  color: var(--danger) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.bg-white {
+  background: var(--bg-white) !important;
+}
+
 /*====================== 
 main navigation 
 =====================*/
-/* .main-navigation a.nav-link:active,
-.main-navigation a.nav-link:hover,
-.main-navigation a.nav-link:focus,
-.main-navigation a.nav-link.focus-within {
-  color: #fff !important;
-} */
+.main-nav {
+  background: var(--nav-bg) !important;
+}
+
+.main-nav .nav-link {
+  color: var(--nav-link) !important;
+}
 
 /*============
 cards 
@@ -224,6 +270,10 @@ background and text
 
 .bg-dark {
   background: #151516 !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
 }
 
 /*==========
@@ -347,9 +397,9 @@ pagination component
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #484848;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  border: 1px solid var(--card-border);
   max-width: 36px;
   display: flex;
   align-items: center;
@@ -428,4 +478,33 @@ small.dropdown-item:hover {
 
 .dropdown-menu a.dropdown-hover.nuxt-link-exact-active {
   color: var(--secondary) !important;
+}
+
+/* =================
+skeletal loader  
+====================*/
+.bg-grey {
+  background: var(--bg-grey) !important;
+}
+
+.loading {
+  position: relative;
+  background-color: #E2E2E2;
+}
+
+.loading::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-30%);
+  background: linear-gradient(90deg, transparent, var(--skeleton-loading), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(30%);
+  }
 }

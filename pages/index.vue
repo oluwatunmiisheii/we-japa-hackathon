@@ -18,7 +18,7 @@
           <div class="row justify-content-center">
             <div class="col-11 col-lg-10 col-xl-6">
               <div class="mb-4 pb-4">
-               <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1588148135977/8eNJhZgBv.png" height="40" alt="weJapa logo">
+               <img src="~assets/images/logo.png" height="40" alt="weJapa logo">
               </div>
               <div>
                 <div class="mb-5">

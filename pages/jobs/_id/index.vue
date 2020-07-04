@@ -117,7 +117,7 @@ export default {
       await this.$store.dispatch('dashboard/getSingleJob', this.$route.params.id).then(res => {
         this.pageLoading = false
       }).catch(err => {
-        this.pageLoading= true
+        this.pageLoading= false
       })
     }
   },

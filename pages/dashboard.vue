@@ -19,59 +19,23 @@
       <section class="pb-5">
         <div class="row">
           <!-- total jobs -->
-          <div class="col-lg-3 col-sm-6 px-2">
-            <div class="card">
-              <div class="card-body text-center">
-                <div class="mb-3">
-                  <div class="icon icon-shape icon-md bg-primary shadow-primary text-white"><i class="fas fa-suitcase"></i>
-                  </div>
-                </div>
-                <h5 class="h3 font-weight-bolder mb-1">{{ allJobs ? allJobs.jobCount : '--' }}</h5>
-                <span class="d-block text-sm text-muted font-weight-bold">Total Jobs</span>
-              </div>
-            </div>
+          <div class="col-lg-3 col-sm-6 px-2" v-if="allJobs">
+            <AnalyticCard :analyticLength="allJobs.jobCount" :analyticText="'Total Jobs'" :iconClass="'bg-primary shadow-primary'" />
           </div>
   
           <!-- open jobs -->
-          <div class="col-lg-3 col-sm-6 px-2">
-            <div class="card">
-              <div class="card-body text-center">
-                <div class="mb-3">
-                  <div class="icon icon-shape icon-md bg-success shadow-success text-white"><i class="fas fa-suitcase"></i>
-                  </div>
-                </div>
-                <h5 class="h3 font-weight-bolder mb-1">{{ openJobs? openJobs.length : '--' }}</h5>
-                <span class="d-block text-sm text-muted font-weight-bold">Open Jobs</span>
-              </div>
-            </div>
+          <div class="col-lg-3 col-sm-6 px-2" v-if="openJobs">
+            <AnalyticCard :analyticLength="openJobs.length" :analyticText="'Open Jobs'" :iconClass="'bg-success shadow-success'" />
           </div>
   
           <!-- Closed jobs -->
-          <div class="col-lg-3 col-sm-6 px-2">
-            <div class="card">
-              <div class="card-body text-center">
-                <div class="mb-3">
-                  <div class="icon icon-shape icon-md bg-danger shadow-danger text-white"><i class="fas fa-suitcase"></i>
-                  </div>
-                </div>
-                <h5 class="h3 font-weight-bolder mb-1">{{ closedJobs ? closedJobs.length : '--' }}</h5>
-                <span class="d-block text-sm text-muted font-weight-bold">Closed Jobs</span>
-              </div>
-            </div>
+          <div class="col-lg-3 col-sm-6 px-2" v-if="closedJobs">
+            <AnalyticCard :analyticLength="closedJobs.length" :analyticText="'Closed Jobs'" :iconClass="'bg-danger shadow-danger'" />
           </div>
   
           <!-- applied jobs -->
           <div class="col-lg-3 col-sm-6 px-2">
-            <div class="card">
-              <div class="card-body text-center">
-                <div class="mb-3">
-                  <div class="icon icon-shape icon-md bg-warning shadow-warning text-white"><i class="fas fa-suitcase"></i>
-                  </div>
-                </div>
-                <h5 class="h3 font-weight-bolder mb-1">0</h5>
-                <span class="d-block text-sm text-muted font-weight-bold">Applied Jobs</span>
-              </div>
-            </div>
+            <AnalyticCard :analyticLength="0" :analyticText="'Applications'" :iconClass="'bg-warning shadow-warning'" />
           </div>
         </div>
       </section>
@@ -88,48 +52,29 @@
         </div>
         <div class="row mb-5">
           <div class="col-md-3 col-sm-6 px-2 pb-4" v-for="job in latestJobs.slice(0,8)" :key="job._id">
-            <div class="card job-card">
-              <div class="card-body text-center">
-                <div class="d-flex justify-content-center">
-                  <div class="avatar-parent-child">
-                    <Logo />
-                    <div class="position-absolute" style="left: 152px; top: 40px;"  v-if="job.status === 'Open'">
-                      <small class="text-success"><i class="fas fa-circle"></i></small>
-                    </div>
-                    <div class="position-absolute" style="left: 152px; top: 40px;" v-if="job.status === 'Closed'">
-                      <small class="text-danger"><i class="fas fa-circle"></i></small>
-                    </div>
-                  </div>
-                </div>
-                <nuxt-link :to="({path: `/jobs/${job._id}`})" class="d-block h6 mt-4 mb-1">{{ job.title }}</nuxt-link>
-                <span class="d-block text-sm text-muted mb-3 job-description">{{ job.description }}</span>
-              </div>
-              <div class="card-footer border-0 bg-white d-flex justify-content-between mb-2">
-                <div class="d-flex align-items-center">
-                  <img src="~assets/images/location.svg" height="15" alt="">
-                  <small class="text-dark pl-1">{{ job.location }}</small>
-                </div>
-                <small class="text-warning">&#36; {{ job.salary }}</small>
-              </div>
-            </div>
+            <JobCard :job="job" />
           </div>
         </div>
       </section>
     </template>
     <template v-else>
-     <page-loader />
+      <DashboardSkeletonLoader />
     </template>
   </div>
 </template>
 
 <script>
-  import Logo from '@/components/Logo'
   import PageLoader from '@/components/pageLoader'
+  import JobCard from '@/components/jobCard'
+  import AnalyticCard from '@/components/analyticsCard'
+  import DashboardSkeletonLoader from '@/components/dashboardLoading'
   export default {
     layout: 'auth',
     components: {
-      Logo,
-      PageLoader
+      PageLoader,
+      JobCard,
+      AnalyticCard,
+      DashboardSkeletonLoader
     },
     async mounted() {
       this.user = JSON.parse(localStorage.getItem('authUser'))
@@ -172,7 +117,7 @@
 
 <style>
   .page-title {
-    color: #151516;
+    color: var(--font-color);
     letter-spacing: -1px;
     margin-bottom: 3px;
   }
@@ -190,7 +135,7 @@
 
   .all-jobs-link {
     font-size: 14px;
-    color: #151516;
+    color: var(--font-color);
   }
 
   .all-jobs-link span {

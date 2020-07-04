@@ -2,7 +2,7 @@
   <div>
     <template v-if="!pageLoading">
       <section class="page-title pb-5">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col-md-8">
             <h1 class="h4 mb-3 mb-md-0 page-title">All Jobs</h1>
           </div>
@@ -22,36 +22,13 @@
           </div>
         </div>
       </section>
-  
+
       <!-- latest jobs -->
       <section class="mb-5" v-if="allJobs !== null">
         <template v-if="paginatedJobs.length">
           <div class="row mb-5">
             <div class="col-md-3 col-sm-6 px-2 pb-4" v-for="job in paginatedJobs" :key="job._id">
-              <div class="card job-card">
-                <div class="card-body text-center">
-                  <div class="d-flex justify-content-center">
-                    <div class="avatar-parent-child">
-                      <Logo />
-                      <div class="position-absolute" style="left: 152px; top: 40px;"  v-if="job.status === 'Open'">
-                        <small class="text-success"><i class="fas fa-circle"></i></small>
-                      </div>
-                      <div class="position-absolute" style="left: 152px; top: 40px;" v-if="job.status === 'Closed'">
-                        <small class="text-danger"><i class="fas fa-circle"></i></small>
-                      </div>
-                    </div>
-                  </div>
-                  <nuxt-link :to="({path: `/jobs/${job._id}`})" class="d-block h6 mt-4 mb-1">{{ job.title }}</nuxt-link>
-                  <span class="d-block text-sm text-muted mb-3 job-description">{{ job.description }}</span>
-                </div>
-                <div class="card-footer border-0 bg-white d-flex justify-content-between mb-2">
-                  <div class="d-flex align-items-center">
-                    <img src="~assets/images/location.svg" height="15" alt="">
-                    <small class="text-dark pl-1">{{ job.location }}</small>
-                  </div>
-                  <small class="text-warning">&#36; {{ job.salary }}</small>
-                </div>
-              </div>
+              <JobCard :job="job" />
             </div>
           </div>
           <!-- pagination -->
@@ -89,19 +66,39 @@
     </template>
 
     <template v-else>
-      <page-loader />
+      <section class="page-title pb-5">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h1 class="mb-3 mb-md-0 bg-grey loading" style="height:8px; width: 30%" />
+          </div>
+          <div class="col-md-4 text-right">
+            <div class="bg-grey loading"  style="height:20px; width: 100%"/>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3" v-for="(n,index) in 8" :key="index">
+              <JobCardSkeleton />
+            </div>
+          </div>
+        </div>
+      </section>
     </template>
   </div>
 </template>
 
 <script>
-  import Logo from '@/components/Logo'
   import PageLoader from '@/components/pageLoader'
+  import JobCard from '@/components/jobCard'
+  import JobCardSkeleton from '@/components/skeletonLoader/jobCardSkeleton'
   export default {
     layout: 'auth',
     components: {
-      Logo,
-      PageLoader
+      JobCard,
+      PageLoader,
+      JobCardSkeleton
     },
     props: {
       size: {

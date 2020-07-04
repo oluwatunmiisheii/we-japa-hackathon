@@ -11,12 +11,12 @@
     <section>
       <div class="row">
         <div class="col-md-4">
-          <div class="card">
+          <div class="card profile-card">
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                   <div class="user-avartar">
-                    <img src="~assets/images/avatar-1.png" height="70" alt="">
+                    <img src="~assets/images/user-avartar.png" height="70" alt="">
                   </div>
                   <div class="pl-4" style="width: 80%">
                     <p class="mb-0 font-weight-normal user--name w-100" style=" display: -webkit-box;">{{ user.name ? user.name : '' }}</p>
@@ -44,7 +44,7 @@
                 </li>
                 <li class="list-group-item">
                   <small class="text-muted fs-14">Experience level</small>
-                  <p class="mb-0 font-weight-normal">{{ user.experienceLevel ? user.experienceLevel : 'No Info' }}</p>
+                  <p class="mb-0 font-weight-normal">{{ user.experience ? user.experience : 'No Info' }}</p>
                 </li>
                 <li class="list-group-item">
                   <small class="text-muted fs-14">Resume</small>
@@ -56,12 +56,12 @@
         </div>
         <div class="col-md-8">
           <template v-if="activeTab === 'activity-timeline'">
-            <div class="card d-flex-justify-content-center text-center flex-column">
+            <div class="card d-flex-justify-content-center text-center flex-column profile-card">
               <div class="card-body">
-                <img src="~/assets/images/illustration-4.png" alt="">
+                <img src="~/assets/images/illustration-4.png" alt="" class="img-fluid">
                 <h4 class="h4">OOps! No Jobs </h4>
                 <p class="text-muted px-md-5 mx-md-5">You havent applied for any job of recent, click on the button below to view available jobs</p>
-                <nuxt-link :to="({path: '/jobs'})" class="btn btn-secondary">View jobs</nuxt-link>
+                <nuxt-link :to="({path: '/jobs'})" class="btn btn-secondary">Explore jobs</nuxt-link>
               </div>
             </div>
           </template>
@@ -87,6 +87,10 @@
 </script>
 
 <style scoped>
+  .profile-card {
+    background: var(--bg-white) !important;
+    border-color: var(--card-border) !important;
+  }
   .user-details li.list-group-item {
     display: flex;
     align-items: center;
@@ -104,7 +108,7 @@
   }
 
   .user-details li.list-group-item p a {
-    color: #151516 !important;
+    color: var(--text-dark) !important;
   }
 
   .user-details li.list-group-item p a:hover {
@@ -113,5 +117,6 @@
 
   .user-details li.list-group-item {
     padding: .75rem 0 !important;
+    background: transparent;
   }
 </style>
