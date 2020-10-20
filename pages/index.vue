@@ -24,7 +24,7 @@
         <div class="col-sm-7 col-lg-6 col-xl-6 py-5 py-md-0">
           <div class="row justify-content-center">
             <div class="col-11 col-lg-10 col-xl-6">
-              <div class="mb-4 pb-4">
+              <div class="mb-4">
                 <img src="~assets/images/logo.png" height="40" alt="weJapa logo" />
               </div>
               <div>
