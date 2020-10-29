@@ -48,7 +48,7 @@
                 <div class="py-2">
                   <nuxt-link :to="({path: '/profile'})" class="dropdown-item text-dark bg-transparent dropdown-hover" href="#">Profile</nuxt-link>
                 </div>
-                <a class="dropdown-item bg-light logOut__link" @click="logOut" href="#"><i class="fas fa-sign-out-alt mr-2"></i>Log out</a>
+                <a class="dropdown-item border-top logOut__link" @click="logOut" href="#"><i class="fas fa-sign-out-alt mr-2"></i>Log out</a>
               </div>
             </li>
           </ul>

@@ -8,8 +8,7 @@
       </div>
       <nuxt-link :to="({path: `/jobs/${job._id}`})" class="d-block h6 mt-4 mb-1">{{ job.title }}</nuxt-link>
       <span class="d-block text-sm text-muted mb-3 job-description">{{ job.description }}</span>
-      <div class="text-danger fs-14" v-if="job.status === 'Closed'">{{job.status}}</div>
-      <small class="text-secondary fs-14" v-if="job.status === 'Open'">{{job.status}}</small>
+      <small class="text-dark font-weight-bold fs-13">{{ job.salary }}</small>
     </div>
     <div class="card-footer border-0 bg-white d-flex justify-content-between mb-2">
       <div class="d-flex align-items-center">
@@ -17,7 +16,8 @@
         <img src="~assets/images/location-inverse.svg" height="15" alt="" v-if="$colorMode.preference === 'dark'">
         <small class="text-dark pl-1">{{ job.location }}</small>
       </div>
-      <small class="text-dark font-weight-bold fs-16">&#36; {{ job.salary }}</small>
+      <div class="text-danger fs-14" v-if="job.status === 'Closed'">{{job.status}}</div>
+      <small class="text-secondary fs-14" v-if="job.status === 'Open'">{{job.status}}</small>
     </div>
   </div>
 </template>

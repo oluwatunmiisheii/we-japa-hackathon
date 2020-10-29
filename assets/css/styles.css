@@ -394,7 +394,7 @@ pagination component
   margin: 0 5px;
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0;
   margin-left: -1px;
   line-height: 1.25;
   color: var(--text-dark);
@@ -408,6 +408,10 @@ pagination component
 
 .pagination li.disabled:active a {
   color: #333 !important;
+}
+
+.pagination li a {
+  padding: 0.5rem 0.75rem;
 }
 
 .pagination li:hover,
